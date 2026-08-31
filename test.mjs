@@ -1,25 +1,19 @@
 import "dotenv/config";
 import Groq from "groq-sdk";
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
-});
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const response = await groq.chat.completions.create({
-  model: "openai/gpt-oss-120b",
+  model: process.env.GROQ_MODEL || "openai/gpt-oss-120b",
+  response_format: { type: "json_object" },
   messages: [
     {
       role: "system",
-      content: `
-You are a customer support assistant.
-Reply briefly and naturally.
-Match the customer's language.
-Do not invent payment links, IDs, bank info, or completed actions.
-      `,
+      content: `You are a personal reply ghostwriter. Reply naturally as the owner, match the user's language and texting tone, and return JSON only: {"reply":"..."}.`,
     },
     {
       role: "user",
-      content: "السلام عليكم",
+      content: "NEW MESSAGE: وينك اليوم؟",
     },
   ],
 });
