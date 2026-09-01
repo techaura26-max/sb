@@ -1,18 +1,13 @@
 {
-  "name": "alaa-groq-modern",
+  "name": "instagram-chat-viewer",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node bootstrap.mjs",
-    "engine": "node server.mjs",
-    "dev": "node --watch bootstrap.mjs"
+    "start": "node viewer-server.mjs",
+    "dev": "node --watch viewer-server.mjs"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "express": "^5.1.0",
-    "groq-sdk": "^0.37.0",
-    "minisearch": "^7.1.2",
-    "multer": "^2.0.2"
+    "express": "^5.1.0"
   }
 }
